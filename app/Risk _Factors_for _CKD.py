@@ -28,6 +28,12 @@ dis_num_target = st.selectbox(
     numeric_cols)
 fig = px.histogram(df, x=dis_num_target, nbins=20)
 st.write(fig)
+st.markdown(
+    '''
+    Understanding the characteristics of the underlying data for any study is very important. Distributions give us information
+    on the range, mean and spread of the data points in a dataset.
+    '''
+)
 
 st.write('\n')
 
@@ -37,6 +43,12 @@ dis_cat_target = st.selectbox(
     categorical_cols)
 fig = px.histogram(df, x=dis_cat_target, color=dis_cat_target)
 st.write(fig)
+st.markdown(
+    '''
+    Just like continuous variables, we can visualise the distribution of categorical variables. This can be very important if
+    your target variable is categorical since you can use it to check for data imbalance.
+    '''
+)
 
 st.write('\n')
 
@@ -45,17 +57,17 @@ fig = px.imshow(df.corr())
 st.write(fig)
 
 col1, col2 = st.columns(2)
-cols_without_target = [x for x in cols_names if x != target]
+# cols_without_target = [x for x in cols_names if x != target]
 with col1:
    x_target = st.selectbox(
     'X Axis:',
-    cols_without_target
+    numeric_cols
     )
 
 with col2:
     y_target = st.selectbox(
     'Y Axis:',
-    cols_without_target
+    numeric_cols
     )
 
 fig = px.scatter(df, x=x_target, y=y_target, color=target)
@@ -67,3 +79,18 @@ box_num_target = st.selectbox(
     )
 fig = px.box(df, x=target, y=box_num_target, color=target)
 st.write(fig)
+st.markdown(
+    '''
+    A visualisation of continuous variables in relation to a categorical target variable is key when doing analysis.
+    For example, we can see that older people are more likely to suffer from chronic kidney disease.
+    '''
+)
+
+st.write('\n')
+
+st.caption('General Observations')
+st.markdown(
+    '''
+    For the Chronic Kidney Disease dataset, exploring the variables gives good insight as to risk factors.
+    '''
+)

@@ -15,6 +15,16 @@ For example the provided dataset comes in _.arrf_ formart. Feel free to run the 
 ```sh
 python app/prepare_dataset.py ./data/chronic_kidney_disease_full.arff
 ```
+## Overview
+The Proof of Concept has 2 main parts. 
+
+The first section allows for exploring the dataset by looking at the characteristics of various features, their relationship with each other as well as in relation to the target variable.
+
+<img src="/assets/scatter.png" width="300">
+
+In the second section, a physician can deep-dive by filtering the dataset on a specific value of the target variable. This allows for identification of different disease subtypes with the help of clustering techniques.
+
+<img src="/assets/cluster.png" width="300">
 
 ## Running Tests
 ```sh
